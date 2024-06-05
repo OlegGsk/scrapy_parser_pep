@@ -10,8 +10,8 @@ class PepParsePipeline:
     def open_spider(self, spider):
         self.status_dict = defaultdict(int)
 
-        data_now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-        filename = f'status_summary_{data_now}.csv'
+        date_now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        filename = f'status_summary_{date_now}.csv'
 
         downloads_dir = BASE_DIR / 'results'
         downloads_dir.mkdir(exist_ok=True)
