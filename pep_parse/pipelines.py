@@ -2,7 +2,7 @@ import csv
 import datetime
 from collections import defaultdict
 
-from pep_parse.constants import BASE_DIR
+from pep_parse.constants import BASE_DIR, RESULTS_DIR
 
 
 class PepParsePipeline:
@@ -12,8 +12,8 @@ class PepParsePipeline:
 
         date_now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         filename = f'status_summary_{date_now}.csv'
-
-        downloads_dir = BASE_DIR / 'results'
+        # тесты не проходят если константы BASE_DIR нет в модуле pipelines
+        downloads_dir = BASE_DIR / RESULTS_DIR
         downloads_dir.mkdir(exist_ok=True)
         self.status_summary_path = downloads_dir / filename
 
